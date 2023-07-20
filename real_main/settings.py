@@ -114,6 +114,7 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
+# to activate static files use command $python manage.py collectstatic 
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_ROOT= Path.joinpath(BASE_DIR, 'static')
