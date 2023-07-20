@@ -4,4 +4,8 @@ from django.http import HttpResponse
 
 
 def index(request, *args, **kwargs):
-    return HttpResponse('<h1>Real Estate home page</h1>')
+    return render(request, 'pages/index.html')
+
+
+def about(request, *args, **kwargs):
+    return render(request, 'pages/about.html')
