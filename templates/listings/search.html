@@ -10,24 +10,33 @@
           <div class="form-row">
             <div class="col-md-4 mb-3">
               <label class="sr-only">Keywords</label>
-              <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)">
+              <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)" 
+              value="{{values.keywords}}">
             </div>
 
             <div class="col-md-4 mb-3">
               <label class="sr-only">City</label>
-              <input type="text" name="city" class="form-control" placeholder="City">
+              <input type="text" name="city" class="form-control" placeholder="City" value="{{values.city}}">
             </div>
 
             <div class="col-md-4 mb-3">
               <label class="sr-only">State</label>
               <select name="state" class="form-control">
                 <option selected="true" disabled="disabled">State (All)</option>
+
                 {%for key,value in state_choices.items%}
-                <option value="{{key}}">{{value}}</option>
+                 
+                  <option value="{{key}}"
+                      {% if key == values.state %}
+                      selected 
+                      {% endif %}>
+                  {{value}}</option>
+                  
                 {%endfor%}
+ 
               </select>
             </div>
-          </div>
+          </div>s
           <!-- Form Row 2 -->
           <div class="form-row">
             <div class="col-md-6 mb-3">
@@ -62,11 +71,11 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">
+          <a href="{%url 'index'%}">
             <i class="fas fa-home"></i> Home</a>
         </li>
         <li class="breadcrumb-item">
-          <a href="listings.html">Browse Listings</a>
+          <a href="{%url 'listings'%}">Browse Listings</a>
         </li>
         <li class="breadcrumb-item active"> Search Results</li>
       </ol>
@@ -116,7 +125,7 @@
                 </div>
                 <div class="row text-secondary pb-2">
                   <div class="col-6">
-                    <i class="fas fa-clock"></i>{{listing.list_date | timesince}}</div>
+                    <i class="fas fa-clock"></i> {{listing.list_date | timesince}}</div>
                 </div>
                 <hr>
                 <a href="{%url 'listing' listing.id%}" class="btn btn-primary btn-block">More Info</a>
