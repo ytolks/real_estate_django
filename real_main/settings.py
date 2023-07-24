@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'listings',
     'realtors',
     'django.contrib.humanize',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'rees_dj_project',
         'USER':'jevgenijs_tolks',
-        'PASSWORD': '',
+        'PASSWORD': 'data',
         'HOST': 'localhost',
         'PORT':'5432'
     }
