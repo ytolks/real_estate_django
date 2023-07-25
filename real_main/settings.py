@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'listings',
     'realtors',
     'django.contrib.humanize',
+    'accounts',
+    'contacts',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'rees_dj_project',
         'USER':'jevgenijs_tolks',
-        'PASSWORD': '',
+        'PASSWORD': 'data',
         'HOST': 'localhost',
         'PORT':'5432'
     }
@@ -139,3 +141,10 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Messages settings
+
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR:'danger',
+}
